@@ -7,7 +7,7 @@ This package provides a drop-in replacement for the etcd3 storage backend, using
 ## Features
 
 - Full `storage.Interface` implementation backed by Cloud Spanner
-- Watch support via a polling-based change broadcast mechanism
+- In-process watch broadcaster — write path publishes events after each Spanner commit, giving microsecond notification latency to the cacher without requiring Change Streams
 - Compatible with the Cloud Spanner emulator for local development and testing
 - Shared Spanner client across resource stores to avoid session pool explosion
 
